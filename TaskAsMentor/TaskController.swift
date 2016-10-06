@@ -27,11 +27,24 @@ class TaskController {
         return tasks.filter({ $0.isComplete == false })
     }
     
+    var mockTasks: [Task] {
+        
+        let task01 = Task(name: "Task01", notes: nil, dueDate: nil)
+        let task02 = Task(name: "Task02", notes: "notes stuff", dueDate: Date(), isCompleted: true)
+        let task03 = Task(name: "Task03", notes: ":)", dueDate: nil)
+        let task04 = Task(name: "Task04", notes: nil, dueDate: Date())
+        
+        return [task01, task02, task03, task04]
+    }
+    
     //==================================================
     // MARK: - Initializer
     //==================================================
     
-    
+    init() {
+        
+        self.tasks = fetchTasks()
+    }
     
     //==================================================
     // MARK: - Methods
@@ -67,7 +80,7 @@ class TaskController {
     
     func fetchTasks() -> [Task] {
         
-        
+        return mockTasks
     }
 }
 
