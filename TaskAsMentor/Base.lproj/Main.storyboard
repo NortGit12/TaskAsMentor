@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskListCell" id="cFr-Ot-00T" customClass="TaskListCell" customModule="TaskAsMentor" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskListCell" id="cFr-Ot-00T" customClass="ButtonTableViewCell" customModule="TaskAsMentor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFr-Ot-00T" id="RGW-fu-uYi">
@@ -32,23 +31,26 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xys-QH-JiL">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zS1-xL-k18">
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Xys-QH-JiL" secondAttribute="height" multiplier="1:1" id="BVe-au-bSV"/>
+                                                <constraint firstAttribute="width" constant="40" id="2P2-cA-sQ6"/>
+                                                <constraint firstAttribute="height" constant="40" id="hOe-bt-SIS"/>
                                             </constraints>
-                                        </imageView>
+                                            <inset key="imageEdgeInsets" minX="1" minY="2" maxX="2" maxY="2"/>
+                                            <state key="normal" image="incomplete"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Xys-QH-JiL" secondAttribute="trailing" constant="8" id="2Yh-ZC-sMF"/>
-                                        <constraint firstItem="Xys-QH-JiL" firstAttribute="top" secondItem="RGW-fu-uYi" secondAttribute="top" id="M0s-m1-chF"/>
+                                        <constraint firstItem="zS1-xL-k18" firstAttribute="top" secondItem="RGW-fu-uYi" secondAttribute="top" constant="3" id="6gs-H2-osM"/>
+                                        <constraint firstAttribute="trailing" secondItem="zS1-xL-k18" secondAttribute="trailing" constant="8" id="7Td-bN-GKz"/>
                                         <constraint firstItem="i5b-wg-9HV" firstAttribute="leading" secondItem="RGW-fu-uYi" secondAttribute="leadingMargin" constant="3" id="au5-4V-XWS"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="i5b-wg-9HV" secondAttribute="bottom" constant="3" id="lp5-gX-BGb"/>
-                                        <constraint firstAttribute="bottom" secondItem="Xys-QH-JiL" secondAttribute="bottom" id="vK0-OC-ebl"/>
+                                        <constraint firstAttribute="bottom" secondItem="zS1-xL-k18" secondAttribute="bottom" constant="3" id="tGF-f4-RbJ"/>
                                         <constraint firstItem="i5b-wg-9HV" firstAttribute="top" secondItem="RGW-fu-uYi" secondAttribute="topMargin" constant="3" id="xoN-Vl-btH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="isCompleteImageView" destination="Xys-QH-JiL" id="Xen-uV-HIz"/>
+                                    <outlet property="isCompleteButton" destination="zS1-xL-k18" id="rj5-hE-1ZV"/>
                                     <outlet property="nameLabel" destination="i5b-wg-9HV" id="eLh-cK-Ifw"/>
                                     <segue destination="frW-Td-LNl" kind="show" identifier="fromCellToExisting" id="zmf-ko-470"/>
                                 </connections>
@@ -208,6 +210,9 @@
             <point key="canvasLocation" x="384.80000000000001" y="-394.45277361319341"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="incomplete" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zmf-ko-470"/>
     </inferredMetricsTieBreakers>
