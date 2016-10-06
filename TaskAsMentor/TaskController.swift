@@ -30,7 +30,7 @@ class TaskController {
     var mockTasks: [Task] {
         
         let task01 = Task(name: "Task01", notes: nil, dueDate: nil)
-        let task02 = Task(name: "Task02", notes: "notes stuff", dueDate: Date(), isCompleted: true)
+        let task02 = Task(name: "Task02", notes: "notes stuff", dueDate: Date(), isComplete: true)
         let task03 = Task(name: "Task03", notes: ":)", dueDate: nil)
         let task04 = Task(name: "Task04", notes: nil, dueDate: Date())
         
