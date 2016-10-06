@@ -52,7 +52,6 @@ class TaskController {
     
     func addTask(name: String, notes: String?, dueDate: NSDate?) {
         
-        
     }
     
     func remove(task: Task) {
