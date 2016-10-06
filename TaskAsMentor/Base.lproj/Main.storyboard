@@ -80,6 +80,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <datePicker key="tableFooterView" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="tzH-Nw-oih">
+                            <rect key="frame" x="0.0" y="280" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <date key="date" timeIntervalSinceReferenceDate="497468978.29679799">
+                                <!--2016-10-06 17:49:38 +0000-->
+                            </date>
+                        </datePicker>
                         <sections>
                             <tableViewSection headerTitle="Name" id="XAC-b2-v9I">
                                 <cells>
@@ -174,6 +181,11 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kO-Ri-2nO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Cyq-Oo-BfM">
+                    <connections>
+                        <action selector="userTappedView" destination="frW-Td-LNl" id="0yS-SU-7Ie"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2072.8000000000002" y="-394.45277361319341"/>
         </scene>

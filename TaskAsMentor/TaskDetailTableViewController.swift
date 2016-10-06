@@ -19,7 +19,8 @@ class TaskDetailTableViewController: UITableViewController {
     @IBOutlet weak var notesTextField: UITextField!
     
     var task: Task?
-    var dueDate: Date?
+    var dueDateValue: NSDate?
+    var dueDatePicker: UIDatePicker!
     
     //==================================================
     // MARK: - General
@@ -27,6 +28,8 @@ class TaskDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dueDateTextField.inputView = dueDatePicker
 
         if let task = task {
             
@@ -92,6 +95,17 @@ class TaskDetailTableViewController: UITableViewController {
     */
     
     //==================================================
+    // MARK: - Date Picker
+    //==================================================
+    
+    func datePickerValueChanged(_ sender: UIDatePicker) {
+        
+        dueDateTextField.text = ""
+        self.dueDateValue = sender.date as NSDate?
+        dueDateTextField.text = self.dueDateValue?.stringValue()
+    }
+    
+    //==================================================
     // MARK: - Methods
     //==================================================
     
@@ -105,6 +119,13 @@ class TaskDetailTableViewController: UITableViewController {
     //==================================================
     // MARK: - Actions
     //==================================================
+    
+    @IBAction func userTappedView() {
+        
+        nameTextField.resignFirstResponder()
+        dueDateTextField.resignFirstResponder()
+        notesTextField.resignFirstResponder()
+    }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
