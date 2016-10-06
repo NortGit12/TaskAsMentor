@@ -17,6 +17,8 @@ class ButtonTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var isCompleteButton: UIButton!
     
+    var delegate: ButtonTableViewCellDelegate?
+    
     //==================================================
     // MARK: - Methods
     //==================================================
@@ -40,7 +42,9 @@ class ButtonTableViewCell: UITableViewCell {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         
-        
+        if delegate != nil {
+            delegate?.buttonCellButtonTapped(sender: self)
+        }
     }
 }
 
@@ -53,3 +57,36 @@ extension ButtonTableViewCell {
         
     }
 }
+
+
+protocol ButtonTableViewCellDelegate {
+    
+    func buttonCellButtonTapped(sender: ButtonTableViewCell)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

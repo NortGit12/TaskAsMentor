@@ -13,14 +13,14 @@ class TaskDetailTableViewController: UITableViewController {
     //==================================================
     // MARK: - Properties
     //==================================================
-    
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dueDateTextField: UITextField!
+    @IBOutlet weak var dueDatePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextField!
     
     var task: Task?
     var dueDateValue: NSDate?
-    var dueDatePicker: UIDatePicker!
     
     //==================================================
     // MARK: - General

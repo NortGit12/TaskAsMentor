@@ -82,6 +82,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <datePicker key="tableFooterView" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="tzH-Nw-oih">
                             <rect key="frame" x="0.0" y="280" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -172,6 +173,7 @@
                         <connections>
                             <outlet property="dataSource" destination="frW-Td-LNl" id="nh1-ub-eCf"/>
                             <outlet property="delegate" destination="frW-Td-LNl" id="2zP-NF-Fbh"/>
+                            <outletCollection property="gestureRecognizers" destination="Cyq-Oo-BfM" appends="YES" id="Hu1-kW-DTP"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="BZh-Ei-d4D">
@@ -181,6 +183,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDatePicker" destination="tzH-Nw-oih" id="CIc-30-opd"/>
+                        <outlet property="dueDateTextField" destination="Ihw-Bs-C2v" id="GiK-Em-qfQ"/>
+                        <outlet property="nameTextField" destination="3Dt-hB-r2h" id="3gj-EX-M2I"/>
+                        <outlet property="notesTextField" destination="cV2-Ux-7lx" id="k3g-bI-FXE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kO-Ri-2nO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Cyq-Oo-BfM">
