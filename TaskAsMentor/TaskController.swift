@@ -17,6 +17,8 @@ class TaskController {
     
     static let shared = TaskController()
     
+    let fetchedResultsController: NSFetchedResultsController<Task>
+    
     var mockTasks: [Task] {
         
         let task01 = Task(name: "Task01", notes: nil, dueDate: nil)
@@ -33,7 +35,13 @@ class TaskController {
     
     init() {
         
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        let ascendingIsCompleteSortDescriptor = NSSortDescriptor(key: "isComplete", ascending: true)
+        let ascendingDueDateSortDescriptor = NSSortDescriptor(key: "dueDate", ascending: true)
+        let ascendingNameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [ascendingIsCompleteSortDescriptor, ascendingDueDateSortDescriptor, ascendingNameSortDescriptor]
         
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.context, sectionNameKeyPath: "isComplete", cacheName: nil)
     }
     
     //==================================================
