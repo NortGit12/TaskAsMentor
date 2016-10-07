@@ -59,17 +59,6 @@ class TaskController {
         let _ = Task(name: name, notes: notes, dueDate: dueDate)
         
         saveToPersistentStore()
-        
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        do {
-            
-            self.tasks = try Stack.context.fetch(request)
-            
-        } catch {
-            
-            NSLog("Error fetching tasks: \(error.localizedDescription)")
-        }
     }
     
     func remove(task: Task) {
@@ -77,18 +66,6 @@ class TaskController {
         task.managedObjectContext?.delete(task)
         
         saveToPersistentStore()
-        
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        do {
-            
-            self.tasks = try Stack.context.fetch(request)
-            
-        } catch {
-            
-            NSLog("Error fetching tasks: \(error.localizedDescription)")
-        }
-
     }
     
     func updateTask(task: Task, name: String, notes: String?, dueDate: NSDate?, isComplete: Bool?) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2AB2471DA82F8B00825157 /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AB2461DA82F8B00825157 /* TaskListTableViewController.swift */; };
 		1FE6E4E91DA6A05C00341AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE6E4E81DA6A05C00341AD0 /* AppDelegate.swift */; };
 		1FE6E4EE1DA6A05C00341AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE6E4EC1DA6A05C00341AD0 /* Main.storyboard */; };
 		1FE6E4F11DA6A05C00341AD0 /* TaskAsMentor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FE6E4EF1DA6A05C00341AD0 /* TaskAsMentor.xcdatamodeld */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F2AB2461DA82F8B00825157 /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		1FE6E4E51DA6A05C00341AD0 /* TaskAsMentor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskAsMentor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE6E4E81DA6A05C00341AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FE6E4ED1DA6A05C00341AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				1FE6E5011DA6A45900341AD0 /* TaskDetailTableViewController.swift */,
+				1F2AB2461DA82F8B00825157 /* TaskListTableViewController.swift */,
 				1FE6E50A1DA6C33900341AD0 /* ButtonTableViewCell.swift */,
 			);
 			name = ViewController;
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2AB2471DA82F8B00825157 /* TaskListTableViewController.swift in Sources */,
 				1FE6E5081DA6A66F00341AD0 /* TaskController.swift in Sources */,
 				1FE6E5041DA6A4AE00341AD0 /* Stack.swift in Sources */,
 				1FE6E5061DA6A58C00341AD0 /* Task+Convenience.swift in Sources */,
