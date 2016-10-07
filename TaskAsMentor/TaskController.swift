@@ -16,17 +16,6 @@ class TaskController {
     //==================================================
     
     static let shared = TaskController()
-    var tasks = [Task]()
-    
-    var completedTasks: [Task] {
-        
-        return tasks.filter({ $0.isComplete == true })
-    }
-    
-    var incompleteTasks: [Task] {
-        
-        return tasks.filter({ $0.isComplete == false })
-    }
     
     var mockTasks: [Task] {
         
@@ -44,7 +33,7 @@ class TaskController {
     
     init() {
         
-        self.tasks = fetchTasks()
+        
     }
     
     //==================================================
@@ -103,24 +92,6 @@ class TaskController {
             try Stack.context.save()
         } catch {
             NSLog("Error saving the ManagedObjectContext: \(error.localizedDescription)")
-        }
-    }
-    
-    //==================================================
-    // MARK: - Mock Data
-    //==================================================
-    
-    func fetchTasks() -> [Task] {
-        
-//        return mockTasks
-        
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
-        do {
-            return try Stack.context.fetch(request)
-        } catch {
-            NSLog("Error fetching tasks: \(error.localizedDescription)")
-            return []
         }
     }
 }
