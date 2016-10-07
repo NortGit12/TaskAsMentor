@@ -42,6 +42,12 @@ class TaskController {
         request.sortDescriptors = [ascendingIsCompleteSortDescriptor, ascendingDueDateSortDescriptor, ascendingNameSortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: Stack.context, sectionNameKeyPath: "isComplete", cacheName: nil)
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            NSLog("Error with the first fetch of the fetchedResultsController: \(error.localizedDescription)")
+        }
     }
     
     //==================================================
