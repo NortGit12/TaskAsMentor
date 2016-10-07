@@ -15,13 +15,13 @@ extension Task {
     // MARK: - Initializer
     //==================================================
     
-    convenience init(name: String, notes: String?, dueDate: Date?, isComplete: Bool = false, context: NSManagedObjectContext = Stack.context) {
+    convenience init(name: String, notes: String?, dueDate: NSDate?, isComplete: Bool = false, context: NSManagedObjectContext = Stack.context) {
         
         self.init(context: context)
         
         self.name = name
         self.notes = notes
-        self.dueDate = dueDate as NSDate?
+        self.dueDate = dueDate
         self.isComplete = isComplete
     }
 }

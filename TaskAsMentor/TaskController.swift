@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class TaskController {
     
@@ -30,9 +31,9 @@ class TaskController {
     var mockTasks: [Task] {
         
         let task01 = Task(name: "Task01", notes: nil, dueDate: nil)
-        let task02 = Task(name: "Task02", notes: "notes stuff", dueDate: Date(), isComplete: true)
+        let task02 = Task(name: "Task02", notes: "notes stuff", dueDate: NSDate(), isComplete: true)
         let task03 = Task(name: "Task03", notes: ":)", dueDate: nil)
-        let task04 = Task(name: "Task04", notes: nil, dueDate: Date())
+        let task04 = Task(name: "Task04", notes: nil, dueDate: NSDate())
         
         return [task01, task02, task03, task04]
     }
@@ -52,11 +53,39 @@ class TaskController {
     
     func addTask(name: String, notes: String?, dueDate: NSDate?) {
         
+        let _ = Task(name: name, notes: notes, dueDate: dueDate)
+        
+        saveToPersistentStore()
+        
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        do {
+            
+            self.tasks = try Stack.context.fetch(request)
+            
+        } catch {
+            
+            NSLog("Error fetching tasks: \(error.localizedDescription)")
+        }
     }
     
     func remove(task: Task) {
         
+        task.managedObjectContext?.delete(task)
         
+        saveToPersistentStore()
+        
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        do {
+            
+            self.tasks = try Stack.context.fetch(request)
+            
+        } catch {
+            
+            NSLog("Error fetching tasks: \(error.localizedDescription)")
+        }
+
     }
     
     func updateTask(task: Task, name: String, notes: String?, dueDate: NSDate?, isComplete: Bool?) {
@@ -70,7 +99,11 @@ class TaskController {
     
     func saveToPersistentStore() {
         
-        
+        do {
+            try Stack.context.save()
+        } catch {
+            NSLog("Error saving the ManagedObjectContext: \(error.localizedDescription)")
+        }
     }
     
     //==================================================
@@ -79,7 +112,16 @@ class TaskController {
     
     func fetchTasks() -> [Task] {
         
-        return mockTasks
+//        return mockTasks
+        
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        do {
+            return try Stack.context.fetch(request)
+        } catch {
+            NSLog("Error fetching tasks: \(error.localizedDescription)")
+            return []
+        }
     }
 }
 

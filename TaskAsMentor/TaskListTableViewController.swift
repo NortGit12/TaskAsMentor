@@ -22,8 +22,12 @@ class TaskListTableViewController: UITableViewController, ButtonTableViewCellDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        tableView.reloadData()
     }
 
     //==================================================
@@ -61,7 +65,8 @@ class TaskListTableViewController: UITableViewController, ButtonTableViewCellDel
             TaskController.shared.remove(task: task)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
-        }    }
+        }
+    }
     
     //==================================================
     // MARK: - ButtonTableViewCellDelegate
