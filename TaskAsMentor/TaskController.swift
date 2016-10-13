@@ -68,9 +68,26 @@ class TaskController {
         saveToPersistentStore()
     }
     
+    func toggleIsCompleted(task: Task) {
+        
+        task.isComplete = !task.isComplete
+        
+        saveToPersistentStore()
+    }
+    
     func updateTask(task: Task, name: String, notes: String?, dueDate: NSDate?, isComplete: Bool?) {
         
-        
+        if name.characters.count > 0 {
+            
+            guard let isComplete = isComplete else { return }
+            
+            task.name = name
+            task.notes = notes
+            task.dueDate = dueDate
+            task.isComplete = isComplete
+            
+            saveToPersistentStore()
+        }
     }
     
     //==================================================
