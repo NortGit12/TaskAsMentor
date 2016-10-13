@@ -106,28 +106,30 @@ class TaskListTableViewController: UITableViewController, NSFetchedResultsContro
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
-        guard let indexPath = indexPath,
-            let newIndexPath = newIndexPath
-            else { return }
-        
         switch type {
             
         case .delete:
+            guard let indexPath = indexPath else { return }
             tableView.deleteRows(at: [indexPath], with: .fade)
         case .insert:
+            guard let newIndexPath = newIndexPath else { return }
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         case .move:
+            guard let indexPath = indexPath,
+                let newIndexPath = newIndexPath
+                else { return }
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         case .update:
+            guard let indexPath = indexPath,
+                let newIndexPath = newIndexPath
+                else { return }
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
-        
         
         switch type {
             
